@@ -1,1 +1,1 @@
-# igNews
+# ig News
