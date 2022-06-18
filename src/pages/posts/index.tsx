@@ -1,10 +1,22 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import * as Prismic from "@prismicio/client";
+import { RichText } from "prismic-dom";
 import { getPrismicClient } from "../../services/prismic";
 import styles from "./styles.module.scss";
 
-export default function Posts() {
+type Post = {
+  slug: string;
+  title: string;
+  excerpt: string;
+  updatedAt: string;
+};
+
+interface PostsProps {
+  posts: Post[];
+}
+
+export default function Posts({ posts }: PostsProps) {
   return (
     <>
       <Head>
@@ -13,35 +25,13 @@ export default function Posts() {
 
       <main className={styles.container}>
         <div className={styles.posts}>
-          <a href="#">
-            <time>12 de Março de 2022</time>
-            <strong>Quaerat aliquam magnam ipsum magnam modi sed.</strong>
-            <p>
-              Tempora ipsum dolor adipisci tempora. Quisquam amet quisquam ipsum
-              amet sed adipisci porro. Adipisci neque ut non. Est amet aliquam
-              sit magnam. Amet quaerat velit porro.
-            </p>
-          </a>
-
-          <a href="#">
-            <time>12 de Março de 2022</time>
-            <strong>Quaerat aliquam magnam ipsum magnam modi sed.</strong>
-            <p>
-              Tempora ipsum dolor adipisci tempora. Quisquam amet quisquam ipsum
-              amet sed adipisci porro. Adipisci neque ut non. Est amet aliquam
-              sit magnam. Amet quaerat velit porro.
-            </p>
-          </a>
-
-          <a href="#">
-            <time>12 de Março de 2022</time>
-            <strong>Quaerat aliquam magnam ipsum magnam modi sed.</strong>
-            <p>
-              Tempora ipsum dolor adipisci tempora. Quisquam amet quisquam ipsum
-              amet sed adipisci porro. Adipisci neque ut non. Est amet aliquam
-              sit magnam. Amet quaerat velit porro.
-            </p>
-          </a>
+          {posts.map((post) => (
+            <a key={post.slug} href="#">
+              <time>{post.updatedAt}</time>
+              <strong>{post.title}</strong>
+              <p>{post.excerpt}</p>
+            </a>
+          ))}
         </div>
       </main>
     </>
@@ -52,12 +42,33 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const response = await prismic.getAllByType("post", {
-    fetch: ["post.title", "post.content"],
+    fetch: "[post.data.title, post.data.description]",
     pageSize: 100,
     predicates: [Prismic.predicates.at("document.type", "post")],
   });
 
+  const posts = response.map((post) => {
+    return {
+      slug: post.uid,
+      title: RichText.asText(post.data.slices[0].primary.title),
+      excerpt:
+        post.data.slices[0].primary.description.find(
+          (content) => content.type === "paragraph"
+        )?.text ?? "",
+      updatedAt: new Date(post.last_publication_date).toLocaleDateString(
+        "pt-BR",
+        {
+          day: "2-digit",
+          month: "long",
+          year: "numeric",
+        }
+      ),
+    };
+  });
+
   return {
-    props: {},
+    props: {
+      posts,
+    },
   };
 };
