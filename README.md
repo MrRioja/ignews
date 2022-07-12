@@ -9,16 +9,16 @@ slogan.
 <br><br>
 
 <p align="center">
-  <img src="https://img.shields.io/static/v1?label=Space&message=traveling&color=blueviolet&style=for-the-badge"/>
-  <img src="https://img.shields.io/github/license/MrRioja/spacetraveling?color=blueviolet&logo=License&style=for-the-badge"/>
-  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/MrRioja/spacetraveling?color=blueviolet&logo=JavaScript&logoColor=white&style=for-the-badge">
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/MrRioja/spacetraveling?color=blueviolet&style=for-the-badge">
+  <img src="https://img.shields.io/static/v1?label=Ig&message=news&color=blueviolet&style=for-the-badge"/>
+  <img src="https://img.shields.io/github/license/MrRioja/ignews?color=blueviolet&logo=License&style=for-the-badge"/>
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/MrRioja/ignews?color=blueviolet&logo=JavaScript&logoColor=white&style=for-the-badge">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/MrRioja/ignews?color=blueviolet&style=for-the-badge">
 </p>
 <br>
 
 <p align="center">
   <a href="#sobre">Sobre</a> •
-  <a href="#tindev">Spacetraveling</a> •
+  <a href="#ignews">IgNews</a> •
   <a href="#instalação">Instalação</a> •
   <a href="#tecnologias">Tecnologias</a> •
   <a href="#autor">Autor</a>  
@@ -39,7 +39,7 @@ slogan.
 
 <br><br><br>
 
-## Spacetraveling
+## IgNews
 
 <br><br><br>
 
