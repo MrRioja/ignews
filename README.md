@@ -53,10 +53,10 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 
 ```bash
 # Clone este repositório
-$ git clone git@github.com:MrRioja/spacetraveling.git
+$ git clone git@github.com:MrRioja/ignews.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd spacetraveling
+$ cd ignews
 
 # Instale as dependências
 $ npm install
