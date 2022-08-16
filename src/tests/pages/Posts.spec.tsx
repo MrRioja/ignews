@@ -31,8 +31,8 @@ describe("Posts page", () => {
             slices: [
               {
                 primary: {
-                  title: "My new post",
-                  content: "Post excerpt",
+                  title: [{ text: "My new post" }],
+                  description: [{ type: "paragraph", text: "Post excerpt" }],
                 },
               },
             ],
@@ -52,7 +52,7 @@ describe("Posts page", () => {
               slug: "my-new-post",
               title: "My new post",
               excerpt: "Post excerpt",
-              updatedAt: "01 de Janeiro de 2022",
+              updatedAt: "01 de janeiro de 2022",
             },
           ],
         },
