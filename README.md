@@ -30,7 +30,7 @@ Projeto desenvolvido durante o Ignite, um bootcamp criado pela [Rocketseat](http
 
 ## IgNews
 
-O IgNews é um blog com conteúdo tech construído com NextJS, Prismic CMS e Strip.
+O IgNews é um blog com conteúdo tech construído com NextJS, Prismic CMS e Stripe.
 
 Ao acessar a aplicação, o visitante verá a tela abaixo, aonde poderá realizar login, ir para página de posts ou se inscrever no blog:
 
